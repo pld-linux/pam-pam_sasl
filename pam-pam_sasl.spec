@@ -1,11 +1,12 @@
 %define 	modulename pam_sasl
 Summary:	A PAM module to authenticate against a SASL mechanism
+Summary(pl.UTF-8):	Moduł PAM do uwierzytelniania względem mechanizmu SASL
 Name:		pam-%{modulename}
 Version:	0.0
 Release:	1
 License:	GPL v2
 Group:		Applications/System
-Source0:	http://people.redhat.com/nalin/test/pam_sasl-0.0.tar.gz
+Source0:	http://people.redhat.com/nalin/test/pam_sasl-%{version}.tar.gz
 # Source0-md5:	88e50269262fb50a604ee3301cb83c35
 URL:		http://people.redhat.com/nalin/test/
 BuildRequires:	autoconf >= 2.57
@@ -21,6 +22,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 pam_sasl is a PAM module which allows authentication against SASL
 mechanisms.
 
+%description -l pl.UTF-8
+pam_sasl to moduł PAM pozwalający na uwierzytelnianie względem
+mechanizmów SASL.
+
 %prep
 %setup -q -n %{modulename}-%{version}
 
@@ -34,8 +39,7 @@ mechanisms.
 %{__autoheader}
 %{__automake}
 %configure \
-	--libdir=/%{_lib} \
-
+	--libdir=/%{_lib}
 
 %{__make}
 
